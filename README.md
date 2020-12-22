@@ -6,7 +6,7 @@
 
 In this article, I will show you how to customize the login page of a **Blazor APB application**
 
-The sample application in this **GitHub** repository has been developed with **Blazor** as UI framework and **SQL Server** as database provider.
+The sample application has been developed with **Blazor** as UI framework and **SQL Server** as database provider.
 
 ### Source Code
 
