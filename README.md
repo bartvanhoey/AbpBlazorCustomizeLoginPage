@@ -160,7 +160,7 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 }
 ```
 
-* Open file **AbpBlazorCustomizeLoginPageHttpApiHostModule.cs** and update **ConfigureBundles()** method.
+* Open file **AbpBlazorCustomizeLoginPageHttpApiHostModule.cs** and update the **ConfigureBundles()** method.
 
 ```csharp
  private void ConfigureBundles()
@@ -179,7 +179,7 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
     }
 ```
 
-* add an **assets/images** folder to the **wwwroot** folder of the **HttpApi.Host** project and copy/paste the **abp logo** in the **images** folder.  You can find a copy of the logo [here](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/blob/gh-pages/src/AbpBlazorCustomizeLoginPage.Blazor/wwwroot/assets/abp-logo-light.svg).
+* add an **assets/images** folder to the **wwwroot** folder of the **HttpApi.Host** project and copy/paste the **abp logo** in the **images** folder.  You can find a copy of the logo [here](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/blob/main/src/AbpBlazorCustomizeLoginPage.HttpApi.Host/wwwroot/assets/images/abp-logo-light.svg).
 
 ## Start both the Blazor and the HttpApi.Host project to run the application
 
