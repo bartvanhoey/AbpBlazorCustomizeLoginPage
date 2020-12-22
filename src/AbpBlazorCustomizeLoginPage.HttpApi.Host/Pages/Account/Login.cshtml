@@ -1,70 +1,3 @@
-## How to customize the login page of an ABP blazor application
-
-## Introduction
-
-In this article, I will show you how to customize the login page of a **Blazor APB application**
-
-The sample application in this **GitHub** repository has been developed with **Blazor** as UI framework and **SQL Server** as database provider.
-
-### Source Code
-
-Source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage).
-
-## Requirements
-
-The following tools are needed to be able to run the solution.
-
-* .NET 5.0 SDK
-* VsCode, Visual Studio 2019 16.8.0+ or another compatible IDE
-
-## Development
-
-### Creating a new Application
-
-* Install or update the ABP CLI:
-
-```bash
-dotnet tool install -g Volo.Abp.Cli || dotnet tool update -g Volo.Abp.Cli
-```
-
-* Use the following ABP CLI command to create a new Blazor ABP application:
-
-```bash
-abp new AbpBlazorCustomizeLoginPage -u blazor
-```
-
-### Open & Run the Application
-
-* Open the solution in Visual Studio (or your favorite IDE).
-* Run the `AbpBlazorCustomizeLoginPage.DbMigrator` application to apply the migrations and seed the initial data.
-* Run the `AbpBlazorCustomizeLoginPage.HttpApi.Host` application to start the server side.
-* Run the `AbpBlazorCustomizeLoginPage.Blazor` application to start the Blazor UI project.
-
-## Create a CustomLoginModel
-
-* Create a folder structure **Pages/Account** in the **HttpApi.Host** project of your application.
-* Add a **CustomLoginModel.cs** class to the **Account** folder.
-
-```csharp
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using Volo.Abp.Account.Web;
-using Volo.Abp.Account.Web.Pages.Account;
-
-namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
-{
-  public class CustomLoginModel : LoginModel
-  {
-    public CustomLoginModel(IAuthenticationSchemeProvider schemeProvider, IOptions<AbpAccountOptions> accountOptions, IOptions<IdentityOptions> identityOptions)
-        : base(schemeProvider, accountOptions, identityOptions) { }
-  }
-}
-```
-
-* Add a **Login.cshtml** file to the **Account** folder.
-
-```html
 @page
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, Volo.Abp.AspNetCore.Mvc.UI
@@ -76,7 +9,7 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 @using Volo.Abp.Account.Settings
 @using Volo.Abp.Settings
 
-@model AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account.CustomLoginModel
+@model  AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account.CustomLoginModel
 
 @inject IHtmlLocalizer<AccountResource> L
 @inject Volo.Abp.Settings.ISettingProvider SettingProvider
@@ -146,49 +79,3 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
         }
     </div>
 </div>
-```
-
-## Add some custom styles and image to the HttpApi.Host project
-
-* add a file **login.css** to the **wwwroot** folder of the **HttpApi.Host** project.
-
-```css
-.abp-background {
-    background-color:  #e90052 !important;
-}
-```
-
-* Open file **AbpBlazorCustomizeLoginPageHttpApiHostModule.cs** and update **ConfigureBundles()** method.
-
-```csharp
- private void ConfigureBundles()
-    {
-      Configure<AbpBundlingOptions>(options =>
-      {
-        options.StyleBundles.Configure(
-                  BasicThemeBundles.Styles.Global,
-                  bundle =>
-              {
-                bundle.AddFiles("/global-styles.css");
-                bundle.AddFiles("/login.css");
-              }
-              );
-      });
-    }
-```
-
-* add an **assets/images** folder to the **wwwroot** folder of the **HttpApi.Host** project and copy/paste the **abp logo** in the **images** folder.  You can find a copy of the logo [here](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/blob/gh-pages/src/AbpBlazorCustomizeLoginPage.Blazor/wwwroot/assets/abp-logo-light.svg).
-
-## Start both the Blazor and the HttpApi.Host project to run the application
-
-Et voilà! This is the result.
-
-![Blazor Up and Running with customized login page](images/loginpage.jpg)
-
-You can now modify the login page, add your custom styles, or custom images, etc.
-
-Find more about ASP.NET Core (MVC/Razor Pages) User Interface Customization Guide [here](https://docs.abp.io/en/abp/4.1/UI/AspNetCore/Customization-User-Interface).
-
-Get the [source code](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage) on GitHub.
-
-Enjoy and have fun!
