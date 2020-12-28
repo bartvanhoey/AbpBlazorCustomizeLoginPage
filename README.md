@@ -1,4 +1,4 @@
-## How to customize the login page of an ABP blazor application
+## How to customize the login page of an ABP Blazor application
 
 ![.NET](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/workflows/.NET/badge.svg)
 
