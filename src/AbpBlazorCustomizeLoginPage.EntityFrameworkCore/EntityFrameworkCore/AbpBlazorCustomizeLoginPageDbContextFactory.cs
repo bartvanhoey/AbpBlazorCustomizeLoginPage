@@ -7,18 +7,18 @@ namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
 {
     /* This class is needed for EF Core console commands
      * (like Add-Migration and Update-Database commands) */
-    public class AbpBlazorCustomizeLoginPageMigrationsDbContextFactory : IDesignTimeDbContextFactory<AbpBlazorCustomizeLoginPageMigrationsDbContext>
+    public class AbpBlazorCustomizeLoginPageDbContextFactory : IDesignTimeDbContextFactory<AbpBlazorCustomizeLoginPageDbContext>
     {
-        public AbpBlazorCustomizeLoginPageMigrationsDbContext CreateDbContext(string[] args)
+        public AbpBlazorCustomizeLoginPageDbContext CreateDbContext(string[] args)
         {
             AbpBlazorCustomizeLoginPageEfCoreEntityExtensionMappings.Configure();
 
             var configuration = BuildConfiguration();
 
-            var builder = new DbContextOptionsBuilder<AbpBlazorCustomizeLoginPageMigrationsDbContext>()
+            var builder = new DbContextOptionsBuilder<AbpBlazorCustomizeLoginPageDbContext>()
                 .UseSqlServer(configuration.GetConnectionString("Default"));
 
-            return new AbpBlazorCustomizeLoginPageMigrationsDbContext(builder.Options);
+            return new AbpBlazorCustomizeLoginPageDbContext(builder.Options);
         }
 
         private static IConfigurationRoot BuildConfiguration()

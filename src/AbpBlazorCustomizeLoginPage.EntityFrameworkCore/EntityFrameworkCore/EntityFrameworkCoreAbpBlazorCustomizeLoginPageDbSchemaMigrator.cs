@@ -20,14 +20,14 @@ namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
 
         public async Task MigrateAsync()
         {
-            /* We intentionally resolving the AbpBlazorCustomizeLoginPageMigrationsDbContext
+            /* We intentionally resolving the AbpBlazorCustomizeLoginPageDbContext
              * from IServiceProvider (instead of directly injecting it)
              * to properly get the connection string of the current tenant in the
              * current scope.
              */
 
             await _serviceProvider
-                .GetRequiredService<AbpBlazorCustomizeLoginPageMigrationsDbContext>()
+                .GetRequiredService<AbpBlazorCustomizeLoginPageDbContext>()
                 .Database
                 .MigrateAsync();
         }

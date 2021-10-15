@@ -11,7 +11,7 @@ using Volo.Abp.Modularity;
 namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
 {
     [DependsOn(
-        typeof(AbpBlazorCustomizeLoginPageEntityFrameworkCoreDbMigrationsModule),
+        typeof(AbpBlazorCustomizeLoginPageEntityFrameworkCoreModule),
         typeof(AbpBlazorCustomizeLoginPageTestBaseModule),
         typeof(AbpEntityFrameworkCoreSqliteModule)
         )]
@@ -47,11 +47,11 @@ namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
             var connection = new SqliteConnection("Data Source=:memory:");
             connection.Open();
 
-            var options = new DbContextOptionsBuilder<AbpBlazorCustomizeLoginPageMigrationsDbContext>()
+            var options = new DbContextOptionsBuilder<AbpBlazorCustomizeLoginPageDbContext>()
                 .UseSqlite(connection)
                 .Options;
 
-            using (var context = new AbpBlazorCustomizeLoginPageMigrationsDbContext(options))
+            using (var context = new AbpBlazorCustomizeLoginPageDbContext(options))
             {
                 context.GetService<IRelationalDatabaseCreator>().CreateTables();
             }

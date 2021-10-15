@@ -7,7 +7,7 @@ namespace AbpBlazorCustomizeLoginPage.DbMigrator
 {
     [DependsOn(
         typeof(AbpAutofacModule),
-        typeof(AbpBlazorCustomizeLoginPageEntityFrameworkCoreDbMigrationsModule),
+        typeof(AbpBlazorCustomizeLoginPageEntityFrameworkCoreModule),
         typeof(AbpBlazorCustomizeLoginPageApplicationContractsModule)
         )]
     public class AbpBlazorCustomizeLoginPageDbMigratorModule : AbpModule

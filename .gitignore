@@ -258,3 +258,5 @@ src/AbpBlazorCustomizeLoginPage.IdentityServer/Logs/*
 src/AbpBlazorCustomizeLoginPage.HttpApi.Host/Logs/*
 src/AbpBlazorCustomizeLoginPage.HttpApi.Host/Logs/*
 src/AbpBlazorCustomizeLoginPage.DbMigrator/Logs/*
+src/AbpBlazorCustomizeLoginPage.Blazor.Server/Logs/*
+src/AbpBlazorCustomizeLoginPage.Blazor.Server.Tiered/Logs/*
