@@ -6,11 +6,11 @@
 
 In this article, I will show you how to customize the login page of a **Blazor APB application**
 
+## Source Code
+
 The sample application has been developed with **Blazor** as UI framework and **SQL Server** as database provider.
 
-### Source Code
-
-Source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage).
+The source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage).
 
 ## Requirements
 
@@ -39,7 +39,7 @@ abp new AbpBlazorCustomizeLoginPage -u blazor
 
 * Open the solution in Visual Studio (or your favorite IDE).
 * Run the `AbpBlazorCustomizeLoginPage.DbMigrator` application to apply the migrations and seed the initial data.
-* Run the `AbpBlazorCustomizeLoginPage.HttpApi.Host` application to start the server side.
+* Run the `AbpBlazorCustomizeLoginPage.HttpApi.Host` application to start the server-side.
 * Run the `AbpBlazorCustomizeLoginPage.Blazor` application to start the Blazor UI project.
 
 ## Create a CustomLoginModel
@@ -150,7 +150,7 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 </div>
 ```
 
-## Add some custom styles and image to the HttpApi.Host project
+## Add some custom styles and images to the HttpApi.Host project
 
 * add a file **login.css** to the **wwwroot** folder of the **HttpApi.Host** project.
 
