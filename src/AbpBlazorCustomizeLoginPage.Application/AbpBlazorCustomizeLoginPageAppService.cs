@@ -4,15 +4,14 @@ using System.Text;
 using AbpBlazorCustomizeLoginPage.Localization;
 using Volo.Abp.Application.Services;
 
-namespace AbpBlazorCustomizeLoginPage
+namespace AbpBlazorCustomizeLoginPage;
+
+/* Inherit your application services from this class.
+ */
+public abstract class AbpBlazorCustomizeLoginPageAppService : ApplicationService
 {
-    /* Inherit your application services from this class.
-     */
-    public abstract class AbpBlazorCustomizeLoginPageAppService : ApplicationService
+    protected AbpBlazorCustomizeLoginPageAppService()
     {
-        protected AbpBlazorCustomizeLoginPageAppService()
-        {
-            LocalizationResource = typeof(AbpBlazorCustomizeLoginPageResource);
-        }
+        LocalizationResource = typeof(AbpBlazorCustomizeLoginPageResource);
     }
 }

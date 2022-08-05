@@ -1,7 +1,6 @@
-﻿namespace AbpBlazorCustomizeLoginPage.Blazor.Pages
-{
-    public partial class Index
-    {
+﻿namespace AbpBlazorCustomizeLoginPage.Blazor.Pages;
 
-    }
+public partial class Index
+{
+
 }

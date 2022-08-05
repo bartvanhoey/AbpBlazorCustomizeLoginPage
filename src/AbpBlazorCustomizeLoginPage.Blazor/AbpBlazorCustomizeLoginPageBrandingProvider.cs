@@ -1,11 +1,10 @@
 ﻿using Volo.Abp.DependencyInjection;
 using Volo.Abp.Ui.Branding;
 
-namespace AbpBlazorCustomizeLoginPage.Blazor
+namespace AbpBlazorCustomizeLoginPage.Blazor;
+
+[Dependency(ReplaceServices = true)]
+public class AbpBlazorCustomizeLoginPageBrandingProvider : DefaultBrandingProvider
 {
-    [Dependency(ReplaceServices = true)]
-    public class AbpBlazorCustomizeLoginPageBrandingProvider : DefaultBrandingProvider
-    {
-        public override string AppName => "AbpBlazorCustomizeLoginPage";
-    }
+    public override string AppName => "AbpBlazorCustomizeLoginPage";
 }

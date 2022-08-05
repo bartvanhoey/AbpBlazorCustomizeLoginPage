@@ -2,15 +2,14 @@
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 
-namespace AbpBlazorCustomizeLoginPage
-{
-    public class AbpBlazorCustomizeLoginPageTestDataSeedContributor : IDataSeedContributor, ITransientDependency
-    {
-        public Task SeedAsync(DataSeedContext context)
-        {
-            /* Seed additional test data... */
+namespace AbpBlazorCustomizeLoginPage;
 
-            return Task.CompletedTask;
-        }
+public class AbpBlazorCustomizeLoginPageTestDataSeedContributor : IDataSeedContributor, ITransientDependency
+{
+    public Task SeedAsync(DataSeedContext context)
+    {
+        /* Seed additional test data... */
+
+        return Task.CompletedTask;
     }
 }

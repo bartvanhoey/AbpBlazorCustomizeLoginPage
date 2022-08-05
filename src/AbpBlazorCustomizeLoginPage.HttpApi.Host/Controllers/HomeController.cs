@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace AbpBlazorCustomizeLoginPage.Controllers
+namespace AbpBlazorCustomizeLoginPage.Controllers;
+
+public class HomeController : AbpController
 {
-    public class HomeController : AbpController
+    public ActionResult Index()
     {
-        public ActionResult Index()
-        {
-            return Redirect("~/swagger");
-        }
+        return Redirect("~/swagger");
     }
 }

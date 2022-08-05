@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44346",
-      "sslPort": 44346
+      "applicationUrl": "https://localhost:44357",
+      "sslPort": 44357
     }
   },
   "profiles": {
@@ -18,7 +18,7 @@
     "AbpBlazorCustomizeLoginPage.HttpApi.Host": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44346",
+      "applicationUrl": "https://localhost:44357",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

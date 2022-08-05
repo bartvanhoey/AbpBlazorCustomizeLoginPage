@@ -3,19 +3,19 @@ using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
-namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
+namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore;
+
+public static class AbpBlazorCustomizeLoginPageEfCoreEntityExtensionMappings
 {
-    public static class AbpBlazorCustomizeLoginPageEfCoreEntityExtensionMappings
+    private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
+
+    public static void Configure()
     {
-        private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
+        AbpBlazorCustomizeLoginPageGlobalFeatureConfigurator.Configure();
+        AbpBlazorCustomizeLoginPageModuleExtensionConfigurator.Configure();
 
-        public static void Configure()
+        OneTimeRunner.Run(() =>
         {
-            AbpBlazorCustomizeLoginPageGlobalFeatureConfigurator.Configure();
-            AbpBlazorCustomizeLoginPageModuleExtensionConfigurator.Configure();
-
-            OneTimeRunner.Run(() =>
-            {
                 /* You can configure extra properties for the
                  * entities defined in the modules used by your application.
                  *
@@ -39,7 +39,6 @@ namespace AbpBlazorCustomizeLoginPage.EntityFrameworkCore
                  * See the documentation for more:
                  * https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Extending-Entities
                  */
-            });
-        }
+        });
     }
 }

@@ -1,13 +1,12 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace AbpBlazorCustomizeLoginPage
-{
-    [DependsOn(
-        typeof(AbpBlazorCustomizeLoginPageApplicationModule),
-        typeof(AbpBlazorCustomizeLoginPageDomainTestModule)
-        )]
-    public class AbpBlazorCustomizeLoginPageApplicationTestModule : AbpModule
-    {
+namespace AbpBlazorCustomizeLoginPage;
 
-    }
+[DependsOn(
+    typeof(AbpBlazorCustomizeLoginPageApplicationModule),
+    typeof(AbpBlazorCustomizeLoginPageDomainTestModule)
+    )]
+public class AbpBlazorCustomizeLoginPageApplicationTestModule : AbpModule
+{
+
 }

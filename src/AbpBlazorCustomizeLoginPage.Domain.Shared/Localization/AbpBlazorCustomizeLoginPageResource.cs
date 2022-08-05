@@ -1,10 +1,9 @@
 ﻿using Volo.Abp.Localization;
 
-namespace AbpBlazorCustomizeLoginPage.Localization
-{
-    [LocalizationResourceName("AbpBlazorCustomizeLoginPage")]
-    public class AbpBlazorCustomizeLoginPageResource
-    {
+namespace AbpBlazorCustomizeLoginPage.Localization;
 
-    }
+[LocalizationResourceName("AbpBlazorCustomizeLoginPage")]
+public class AbpBlazorCustomizeLoginPageResource
+{
+
 }

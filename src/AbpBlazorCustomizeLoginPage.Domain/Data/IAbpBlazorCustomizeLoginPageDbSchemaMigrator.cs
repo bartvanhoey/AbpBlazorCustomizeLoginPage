@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace AbpBlazorCustomizeLoginPage.Data
+namespace AbpBlazorCustomizeLoginPage.Data;
+
+public interface IAbpBlazorCustomizeLoginPageDbSchemaMigrator
 {
-    public interface IAbpBlazorCustomizeLoginPageDbSchemaMigrator
-    {
-        Task MigrateAsync();
-    }
+    Task MigrateAsync();
 }

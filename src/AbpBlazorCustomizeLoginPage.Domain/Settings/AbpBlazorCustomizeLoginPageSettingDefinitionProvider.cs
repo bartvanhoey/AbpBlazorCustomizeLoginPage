@@ -1,13 +1,12 @@
 ﻿using Volo.Abp.Settings;
 
-namespace AbpBlazorCustomizeLoginPage.Settings
+namespace AbpBlazorCustomizeLoginPage.Settings;
+
+public class AbpBlazorCustomizeLoginPageSettingDefinitionProvider : SettingDefinitionProvider
 {
-    public class AbpBlazorCustomizeLoginPageSettingDefinitionProvider : SettingDefinitionProvider
+    public override void Define(ISettingDefinitionContext context)
     {
-        public override void Define(ISettingDefinitionContext context)
-        {
-            //Define your own settings here. Example:
-            //context.Add(new SettingDefinition(AbpBlazorCustomizeLoginPageSettings.MySetting1));
-        }
+        //Define your own settings here. Example:
+        //context.Add(new SettingDefinition(AbpBlazorCustomizeLoginPageSettings.MySetting1));
     }
 }

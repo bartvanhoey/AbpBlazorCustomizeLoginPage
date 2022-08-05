@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 
-namespace AbpBlazorCustomizeLoginPage.Blazor
+namespace AbpBlazorCustomizeLoginPage.Blazor;
+
+public class AbpBlazorCustomizeLoginPageBlazorAutoMapperProfile : Profile
 {
-    public class AbpBlazorCustomizeLoginPageBlazorAutoMapperProfile : Profile
+    public AbpBlazorCustomizeLoginPageBlazorAutoMapperProfile()
     {
-        public AbpBlazorCustomizeLoginPageBlazorAutoMapperProfile()
-        {
-            //Define your AutoMapper configuration here for the Blazor project.
-        }
+        //Define your AutoMapper configuration here for the Blazor project.
     }
 }

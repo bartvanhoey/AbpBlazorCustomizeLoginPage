@@ -1,7 +1,6 @@
-﻿namespace AbpBlazorCustomizeLoginPage
-{
-    public abstract class AbpBlazorCustomizeLoginPageApplicationTestBase : AbpBlazorCustomizeLoginPageTestBase<AbpBlazorCustomizeLoginPageApplicationTestModule> 
-    {
+﻿namespace AbpBlazorCustomizeLoginPage;
 
-    }
+public abstract class AbpBlazorCustomizeLoginPageApplicationTestBase : AbpBlazorCustomizeLoginPageTestBase<AbpBlazorCustomizeLoginPageApplicationTestModule>
+{
+
 }

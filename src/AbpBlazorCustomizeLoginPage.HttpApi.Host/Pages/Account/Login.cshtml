@@ -16,7 +16,7 @@
 
 <div class="card text-center mt-3 shadow-sm rounded">
     <div class="card-body abp-background p-5">
-        <img class="mb-4" src="~/assets/images/abp-logo-light.svg" alt="ABP logo" width="115" height="55">
+        <img class="mb-4" src="https://raw.githubusercontent.com/bartvanhoey/AbpBlazorCustomizeLoginPage/main/src/AbpBlazorCustomizeLoginPage.HttpApi.Host/wwwroot/assets/images/abp-logo-light.svg" alt="ABP logo" width="115" height="55">
         <h4>@L["Login"]</h4>
         @if (await SettingProvider.IsTrueAsync(AccountSettingNames.IsSelfRegistrationEnabled))
         {
@@ -31,14 +31,11 @@
                 <input asp-for="ReturnUrl" />
                 <input asp-for="ReturnUrlHash" />
                 <div class="form-group">
-                    @*<label asp-for="LoginInput.UserNameOrEmailAddress"></label>*@
-                    <label>Username</label>
-                    <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" />
+                    <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" placeholder="Username" />
                     <span asp-validation-for="LoginInput.UserNameOrEmailAddress" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="LoginInput.Password"></label>
-                    <input asp-for="LoginInput.Password" class="form-control" />
+                    <input asp-for="LoginInput.Password" class="form-control" placeholder="Password" />
                     <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
                 </div>
                 <abp-row>

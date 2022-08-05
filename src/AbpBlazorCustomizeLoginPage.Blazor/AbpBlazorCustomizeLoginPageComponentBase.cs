@@ -1,13 +1,12 @@
 ﻿using AbpBlazorCustomizeLoginPage.Localization;
 using Volo.Abp.AspNetCore.Components;
 
-namespace AbpBlazorCustomizeLoginPage.Blazor
+namespace AbpBlazorCustomizeLoginPage.Blazor;
+
+public abstract class AbpBlazorCustomizeLoginPageComponentBase : AbpComponentBase
 {
-    public abstract class AbpBlazorCustomizeLoginPageComponentBase : AbpComponentBase
+    protected AbpBlazorCustomizeLoginPageComponentBase()
     {
-        protected AbpBlazorCustomizeLoginPageComponentBase()
-        {
-            LocalizationResource = typeof(AbpBlazorCustomizeLoginPageResource);
-        }
+        LocalizationResource = typeof(AbpBlazorCustomizeLoginPageResource);
     }
 }

@@ -7,41 +7,43 @@ using AbpBlazorCustomizeLoginPage.Data;
 using Serilog;
 using Volo.Abp;
 
-namespace AbpBlazorCustomizeLoginPage.DbMigrator
+namespace AbpBlazorCustomizeLoginPage.DbMigrator;
+
+public class DbMigratorHostedService : IHostedService
 {
-    public class DbMigratorHostedService : IHostedService
+    private readonly IHostApplicationLifetime _hostApplicationLifetime;
+    private readonly IConfiguration _configuration;
+
+    public DbMigratorHostedService(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration)
     {
-        private readonly IHostApplicationLifetime _hostApplicationLifetime;
-        private readonly IConfiguration _configuration;
+        _hostApplicationLifetime = hostApplicationLifetime;
+        _configuration = configuration;
+    }
 
-        public DbMigratorHostedService(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration)
+    public async Task StartAsync(CancellationToken cancellationToken)
+    {
+        using (var application = await AbpApplicationFactory.CreateAsync<AbpBlazorCustomizeLoginPageDbMigratorModule>(options =>
         {
-            _hostApplicationLifetime = hostApplicationLifetime;
-            _configuration = configuration;
-        }
-
-        public async Task StartAsync(CancellationToken cancellationToken)
+           options.Services.ReplaceConfiguration(_configuration);
+           options.UseAutofac();
+           options.Services.AddLogging(c => c.AddSerilog());
+        }))
         {
-            using (var application = AbpApplicationFactory.Create<AbpBlazorCustomizeLoginPageDbMigratorModule>(options =>
-            {
-                options.Services.ReplaceConfiguration(_configuration);
-                options.UseAutofac();
-                options.Services.AddLogging(c => c.AddSerilog());
-            }))
-            {
-                application.Initialize();
+            await application.InitializeAsync();
 
-                await application
-                    .ServiceProvider
-                    .GetRequiredService<AbpBlazorCustomizeLoginPageDbMigrationService>()
-                    .MigrateAsync();
+            await application
+                .ServiceProvider
+                .GetRequiredService<AbpBlazorCustomizeLoginPageDbMigrationService>()
+                .MigrateAsync();
 
-                application.Shutdown();
+            await application.ShutdownAsync();
 
-                _hostApplicationLifetime.StopApplication();
-            }
+            _hostApplicationLifetime.StopApplication();
         }
+    }
 
-        public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        return Task.CompletedTask;
     }
 }

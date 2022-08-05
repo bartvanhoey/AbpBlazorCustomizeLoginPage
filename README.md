@@ -14,8 +14,9 @@ The source code of the completed application is [available on GitHub](https://gi
 
 The following tools are needed to be able to run the solution.
 
-* .NET 5.0 SDK
-* VsCode, Visual Studio 2019 16.8.0+ or another compatible IDE
+* .NET 6.0 SDK
+* VsCode, Visual Studio 2022 or another compatible IDE
+* ABP CLI version 6.0.0
 
 ## Development
 
@@ -35,7 +36,7 @@ abp new AbpBlazorCustomizeLoginPage -u blazor -o AbpBlazorCustomizeLoginPage
 
 ### Open & Run the Application
 
-* Open the solution in Visual Studio (or your favorite IDE).
+* Open the solution in Visual Studio (or your favourite IDE).
 * Run the `AbpBlazorCustomizeLoginPage.DbMigrator` application to apply the migrations and seed the initial data.
 * Run the `AbpBlazorCustomizeLoginPage.HttpApi.Host` application to start the server-side.
 * Run the `AbpBlazorCustomizeLoginPage.Blazor` application to start the Blazor UI project.
@@ -98,14 +99,11 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
                 <input asp-for="ReturnUrl" />
                 <input asp-for="ReturnUrlHash" />
                 <div class="form-group">
-                    @*<label asp-for="LoginInput.UserNameOrEmailAddress"></label>*@
-                    <label>Username</label>
-                    <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" />
+                    <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" placeholder="Username" />
                     <span asp-validation-for="LoginInput.UserNameOrEmailAddress" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="LoginInput.Password"></label>
-                    <input asp-for="LoginInput.Password" class="form-control" />
+                    <input asp-for="LoginInput.Password" class="form-control" placeholder="Password"/>
                     <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
                 </div>
                 <abp-row>
@@ -185,7 +183,7 @@ Et voilà! This is the result.
 
 ![Blazor Up and Running with customized login page](images/loginpage.jpg)
 
-You can now modify the login page, add your custom styles, or custom images, etc.
+You can now modify the login page, add your custom styles,  custom images, etc.
 
 Find more about ASP.NET Core (MVC/Razor Pages) User Interface Customization Guide [here](https://docs.abp.io/en/abp/4.1/UI/AspNetCore/Customization-User-Interface).
 

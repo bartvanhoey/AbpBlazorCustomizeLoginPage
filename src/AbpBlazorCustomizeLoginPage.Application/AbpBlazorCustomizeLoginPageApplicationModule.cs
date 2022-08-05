@@ -7,26 +7,25 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace AbpBlazorCustomizeLoginPage
+namespace AbpBlazorCustomizeLoginPage;
+
+[DependsOn(
+    typeof(AbpBlazorCustomizeLoginPageDomainModule),
+    typeof(AbpAccountApplicationModule),
+    typeof(AbpBlazorCustomizeLoginPageApplicationContractsModule),
+    typeof(AbpIdentityApplicationModule),
+    typeof(AbpPermissionManagementApplicationModule),
+    typeof(AbpTenantManagementApplicationModule),
+    typeof(AbpFeatureManagementApplicationModule),
+    typeof(AbpSettingManagementApplicationModule)
+    )]
+public class AbpBlazorCustomizeLoginPageApplicationModule : AbpModule
 {
-    [DependsOn(
-        typeof(AbpBlazorCustomizeLoginPageDomainModule),
-        typeof(AbpAccountApplicationModule),
-        typeof(AbpBlazorCustomizeLoginPageApplicationContractsModule),
-        typeof(AbpIdentityApplicationModule),
-        typeof(AbpPermissionManagementApplicationModule),
-        typeof(AbpTenantManagementApplicationModule),
-        typeof(AbpFeatureManagementApplicationModule),
-        typeof(AbpSettingManagementApplicationModule)
-        )]
-    public class AbpBlazorCustomizeLoginPageApplicationModule : AbpModule
+    public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        public override void ConfigureServices(ServiceConfigurationContext context)
+        Configure<AbpAutoMapperOptions>(options =>
         {
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<AbpBlazorCustomizeLoginPageApplicationModule>();
-            });
-        }
+            options.AddMaps<AbpBlazorCustomizeLoginPageApplicationModule>();
+        });
     }
 }
