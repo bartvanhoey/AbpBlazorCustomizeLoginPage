@@ -1,7 +1,5 @@
 ## How to customize the login page of an ABP Blazor application
 
-![.NET](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/workflows/.NET/badge.svg)
-
 ## Introduction
 
 In this article, I will show you how to customize the login page of a **Blazor APB application**
@@ -32,7 +30,7 @@ dotnet tool install -g Volo.Abp.Cli || dotnet tool update -g Volo.Abp.Cli
 * Use the following ABP CLI command to create a new Blazor ABP application:
 
 ```bash
-abp new AbpBlazorCustomizeLoginPage -u blazor
+abp new AbpBlazorCustomizeLoginPage -u blazor -o AbpBlazorCustomizeLoginPage
 ```
 
 ### Open & Run the Application
