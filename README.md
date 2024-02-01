@@ -16,7 +16,7 @@ The following tools are needed to be able to run the solution.
 
 * .NET 8.0 SDK
 * VsCode, Visual Studio 2022 or another compatible IDE
-* ABP CLI version 6.0.0
+* ABP CLI version 8.0.0
 
 ## Development
 
