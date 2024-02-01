@@ -14,7 +14,7 @@ The source code of the completed application is [available on GitHub](https://gi
 
 The following tools are needed to be able to run the solution.
 
-* .NET 6.0 SDK
+* .NET 8.0 SDK
 * VsCode, Visual Studio 2022 or another compatible IDE
 * ABP CLI version 6.0.0
 
@@ -36,7 +36,7 @@ abp new AbpBlazorCustomizeLoginPage -u blazor -o AbpBlazorCustomizeLoginPage
 
 ### Open & Run the Application
 
-* Open the solution in Visual Studio (or your favourite IDE).
+* Open the solution in Visual Studio (or your favorite IDE).
 * Run the `AbpBlazorCustomizeLoginPage.DbMigrator` application to apply the migrations and seed the initial data.
 * Run the `AbpBlazorCustomizeLoginPage.HttpApi.Host` application to start the server-side.
 * Run the `AbpBlazorCustomizeLoginPage.Blazor` application to start the Blazor UI project.
@@ -57,8 +57,8 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 {
   public class CustomLoginModel : LoginModel
   {
-    public CustomLoginModel(IAuthenticationSchemeProvider schemeProvider, IOptions<AbpAccountOptions> accountOptions, IOptions<IdentityOptions> identityOptions)
-        : base(schemeProvider, accountOptions, identityOptions) { }
+    public CustomLoginModel(IAuthenticationSchemeProvider schemeProvider, IOptions<AbpAccountOptions> accountOptions, IOptions<IdentityOptions> identityOptions, IdentityDynamicClaimsPrincipalContributorCache contributorCache)
+        : base(schemeProvider, accountOptions, identityOptions, contributorCache) { }
   }
 }
 ```
@@ -84,7 +84,7 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 
 <div class="card text-center mt-3 shadow-sm rounded">
     <div class="card-body abp-background p-5">
-        <img class="mb-4" src="~/assets/images/abp-logo-light.svg" alt="ABP logo" width="115" height="55">
+        <img class="mb-4" src="~/images/abp-logo-light.svg" alt="ABP logo" width="115" height="55">
         <h4>@L["Login"]</h4>
         @if (await SettingProvider.IsTrueAsync(AccountSettingNames.IsSelfRegistrationEnabled))
         {
@@ -160,22 +160,22 @@ namespace AbpBlazorCustomizeLoginPage.HttpApi.Host.Pages.Account
 
 ```csharp
  private void ConfigureBundles()
+ {
+    Configure<AbpBundlingOptions>(options =>
     {
-      Configure<AbpBundlingOptions>(options =>
-      {
         options.StyleBundles.Configure(
-                  BasicThemeBundles.Styles.Global,
-                  bundle =>
-              {
+            LeptonXLiteThemeBundles.Styles.Global,
+            bundle =>
+            {
                 bundle.AddFiles("/global-styles.css");
                 bundle.AddFiles("/login.css");
-              }
-              );
-      });
-    }
+            }
+        );
+    });
+}
 ```
 
-* add an **assets/images** folder to the **wwwroot** folder of the **HttpApi.Host** project and copy/paste the **abp logo** in the **images** folder.  You can find a copy of the logo [here](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/blob/main/src/AbpBlazorCustomizeLoginPage.HttpApi.Host/wwwroot/assets/images/abp-logo-light.svg).
+* add an **assets/images** folder to the **wwwroot** folder of the **HttpApi.Host** project and copy/paste the **abp logo** in the **images** folder.  You can find a copy of the logo [here](https://github.com/bartvanhoey/AbpBlazorCustomizeLoginPage/blob/main/src/AbpBlazorCustomizeLoginPage.HttpApi.Host/wwwroot/images/abp-logo-light.svg).
 
 ## Start both the Blazor and the HttpApi.Host project to run the application
 
